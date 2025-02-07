@@ -22,7 +22,8 @@
         }
         .buttons {
             display: flex;
-            gap: 20px;
+            justify-content: space-between;
+            width: 300px;
         }
         button {
             font-size: 1.5rem;
@@ -38,7 +39,7 @@
         .no {
             background-color: white;
             color: black;
-            position: absolute;
+            position: relative;
         }
         .big-text {
             font-size: 3rem;
@@ -51,8 +52,8 @@
 <body>
     <div class="question" id="question">Veux-tu être ma Valentine ? ❤️</div>
     <div class="buttons">
-        <button class="yes" onclick="sayYes()">Oui</button>
         <button class="no" onmouseover="moveButton()">Non</button>
+        <button class="yes" onclick="sayYes()">Oui</button>
     </div>
     
     <script>
@@ -62,11 +63,20 @@
         }
 
         function moveButton() {
-            const btn = document.querySelector('.no');
-            const x = Math.random() * (window.innerWidth - 100);
-            const y = Math.random() * (window.innerHeight - 50);
-            btn.style.left = `${x}px`;
-            btn.style.top = `${y}px`;
+            const btnNo = document.querySelector('.no');
+            const btnYes = document.querySelector('.yes');
+            btnNo.style.position = 'absolute';
+            btnYes.style.position = 'absolute';
+            
+            const xNo = window.innerWidth * 0.7;
+            const yNo = Math.random() * (window.innerHeight - 50);
+            const xYes = window.innerWidth * 0.2;
+            const yYes = Math.random() * (window.innerHeight - 50);
+            
+            btnNo.style.left = `${xNo}px`;
+            btnNo.style.top = `${yNo}px`;
+            btnYes.style.left = `${xYes}px`;
+            btnYes.style.top = `${yYes}px`;
         }
     </script>
 </body>
