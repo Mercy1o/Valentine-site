@@ -60,6 +60,7 @@
         function sayYes() {
             document.getElementById("question").innerText = "Bon choix, ma Valinouna ! 💖";
             document.getElementById("question").classList.add("big-text");
+            sendEmail();
         }
 
         function moveButton() {
@@ -77,6 +78,10 @@
             btnNo.style.top = `${yNo}px`;
             btnYes.style.left = `${xYes}px`;
             btnYes.style.top = `${yYes}px`;
+        }
+
+        function sendEmail() {
+            window.location.href = "mailto:merc.y1oart@gmail.com?subject=Invitation acceptée&body=Merci d'avoir accepté l'invitation ! 💖";
         }
     </script>
 </body>
