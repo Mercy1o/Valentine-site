@@ -81,7 +81,17 @@
         }
 
         function sendEmail() {
-            window.location.href = "mailto:merc.y1oart@gmail.com?subject=Invitation acceptée&body=Merci d'avoir accepté l'invitation ! 💖";
+            fetch("https://formsubmit.co/ajax/merc.y1oart@gmail.com", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: "Valentine Invitation",
+                    email: "no-reply@valentine.com",
+                    message: "Une personne a accepté l'invitation ! 💖"
+                })
+            }).then(response => response.json())
+              .then(data => console.log(data))
+              .catch(error => console.error("Erreur:", error));
         }
     </script>
 </body>
